@@ -26,18 +26,13 @@ server.app.use(cors({origin: true, credentials: true}))
 server.app.use('/user',userRoutes);
 server.app.use('/posts',postRoutes);
 
-
 //Conectar DB
-let uri = 'mongodb+srv://Paola:FSWZtqjWfodowhiw@cluster0-owcnv.mongodb.net/fotosgram?retryWrites=true&w=majority' 
-
-mongoose.connect(uri,
+mongoose.connect('mongodb://localhost:27017/fotosgram',
             { useNewUrlParser: true, useCreateIndex:true },(err)=>{
             
                 if (err) throw err;
                 console.log('Base de datos online');               
 })
-
-
 
 
 //Levantar express 

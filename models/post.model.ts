@@ -5,8 +5,26 @@ const postSchema = new Schema({
     created:{
         type:Date
     },
+    nombre:{
+        type: String 
+    },
     mensaje:{
         type:String
+    },
+    categoria:{
+        type: String 
+    },
+    direccion:{
+        type: String 
+    },
+    horario:{
+        type: String 
+    },
+    costo:{
+        type: String 
+    },
+    contactos:{
+        type: String 
     },
     imgs: [{
         type:String
@@ -28,7 +46,13 @@ postSchema.pre<IPost>('save',function(next){
 
 interface IPost extends Document{
     created:Date;
+    nombre: string;
     mensaje:string;
+    categoria: string;
+    direccion: string;
+    horario: string;
+    costo: string;
+    contactos: string;
     img:string[];
     coords:string;
     usuario:string;

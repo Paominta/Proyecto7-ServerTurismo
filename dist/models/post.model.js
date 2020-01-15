@@ -5,7 +5,25 @@ const postSchema = new mongoose_1.Schema({
     created: {
         type: Date
     },
+    nombre: {
+        type: String
+    },
     mensaje: {
+        type: String
+    },
+    categoria: {
+        type: String
+    },
+    direccion: {
+        type: String
+    },
+    horario: {
+        type: String
+    },
+    costo: {
+        type: String
+    },
+    contactos: {
         type: String
     },
     imgs: [{
