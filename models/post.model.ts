@@ -6,7 +6,8 @@ const postSchema = new Schema({
         type:Date
     },
     nombre:{
-        type: String 
+        type: String,
+        required:[true,'El nombre del lugar es necesario']
     },
     mensaje:{
         type:String
@@ -32,6 +33,12 @@ const postSchema = new Schema({
     coords:{
         type: String // Latitud y longitud
     },
+    recorrido:{
+        type: String 
+    },
+    estado:{
+        type: String 
+    },
     usuario:{
         type:Schema.Types.ObjectId,
         ref: 'Usuario',
@@ -55,6 +62,8 @@ interface IPost extends Document{
     contactos: string;
     img:string[];
     coords:string;
+    recorrido: string;
+    estado: string;
     usuario:string;
 }
 

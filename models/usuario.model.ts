@@ -19,7 +19,22 @@ const usuarioSchema = new Schema({
     password:{
         type: String,
         required: [true,'La contraseña es requerida']
-    }
+    },
+    edad:{
+        type: String,
+    },
+    genero:{
+        type: String,
+    },
+    pais:{
+        type: String,
+    },
+    ciudad:{
+        type: String,
+    },
+    intereses:{
+        type: String,
+    },
 });
 
 
@@ -37,7 +52,11 @@ interface IUsuario extends Document{
     email:string;
     password:string;
     avatar: string;
-
+    edad: string;
+    genero: string;
+    pais: string;
+    ciudad: string;
+    intereses: string;
     compararPassword(password: string):boolean;
 }
 
