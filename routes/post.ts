@@ -29,7 +29,17 @@ postRoutes.get('/',async (req: any, res: Response)=>{
 
 });
 
-
+//Obtener post por id
+postRoutes.get('/ide', async (req: any, res: Response)=>{
+    let id = req.query.id;
+    const post = await Post.findOne({_id: id});
+    
+    res.json({
+        ok:true,
+        id,
+        post
+    });
+});
 
 //Crear Post
 postRoutes.post('/',[verificaToken],(req: any, res: Response)=>{

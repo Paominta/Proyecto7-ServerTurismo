@@ -27,7 +27,12 @@ userRoutes.post('/login',(req:Request, res:Response) =>{
                 _id:userDB._id,
                 nombre:userDB.nombre,
                 email:userDB.email,
-                avatar:userDB.avatar
+                avatar:userDB.avatar,
+                edad: userDB.edad,
+                genero: userDB.genero,
+                pais: userDB.pais,
+                ciudad: userDB.ciudad,
+                intereses: userDB.intereses
             });
 
             res.json({
@@ -55,7 +60,12 @@ userRoutes.post('/create',(req: Request, res: Response) =>{
         nombre : req.body.nombre,
         email  : req.body.email,
         password: bcrypt.hashSync(req.body.password,10),
-        avatar: req.body.avatar
+        avatar: req.body.avatar,
+        edad: req.body.edad,
+        genero:req.body.genero,
+        pais: req.body.pais,
+        ciudad: req.body.ciudad,
+        intereses: req.body.intereses
     }
 
 
@@ -65,7 +75,12 @@ userRoutes.post('/create',(req: Request, res: Response) =>{
             _id:userDB._id,
             nombre:userDB.nombre,
             email:userDB.email,
-            avatar:userDB.avatar
+            avatar:userDB.avatar,
+            edad: userDB.edad,
+            genero: userDB.genero,
+            pais: userDB.pais,
+            ciudad: userDB.ciudad,
+            intereses: userDB.intereses
         });
 
         res.json({
@@ -89,7 +104,12 @@ userRoutes.post('/update', verificaToken,(req:any, res:Response) =>{
     const user = {
         nombre: req.body.nombre || req.usuario.nombre,
         email: req.body.email || req.usuario.email,
-        avatar: req.body.avatar || req.usuario.avatar
+        avatar: req.body.avatar || req.usuario.avatar,
+        edad: req.body.edad || req.body.edad,
+        genero:req.body.genero ||req.body.genero,
+        pais: req.body.pais || req.body.pais,
+        ciudad: req.body.ciudad || req.body.ciudad,
+        intereses: req.body.intereses || req.body.intereses
     }
 
     Usuario.findByIdAndUpdate(req.usuario._id,user,{ new: true},(err, userDB)=>{
@@ -106,7 +126,12 @@ userRoutes.post('/update', verificaToken,(req:any, res:Response) =>{
             _id:userDB._id,
             nombre:userDB.nombre,
             email:userDB.email,
-            avatar:userDB.avatar
+            avatar:userDB.avatar,
+            edad: userDB.edad,
+            genero: userDB.genero,
+            pais: userDB.pais,
+            ciudad: userDB.ciudad,
+            intereses: userDB.intereses
         });
 
         res.json({

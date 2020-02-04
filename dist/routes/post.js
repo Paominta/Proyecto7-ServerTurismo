@@ -35,6 +35,16 @@ postRoutes.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         posts
     });
 }));
+//Obtener post por id
+postRoutes.get('/ide', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let id = req.query.id;
+    const post = yield post_model_1.Post.findOne({ _id: id });
+    res.json({
+        ok: true,
+        id,
+        post
+    });
+}));
 //Crear Post
 postRoutes.post('/', [autenticacion_1.verificaToken], (req, res) => {
     const body = req.body;

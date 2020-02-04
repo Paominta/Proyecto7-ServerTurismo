@@ -26,7 +26,12 @@ userRoutes.post('/login', (req, res) => {
                 _id: userDB._id,
                 nombre: userDB.nombre,
                 email: userDB.email,
-                avatar: userDB.avatar
+                avatar: userDB.avatar,
+                edad: userDB.edad,
+                genero: userDB.genero,
+                pais: userDB.pais,
+                ciudad: userDB.ciudad,
+                intereses: userDB.intereses
             });
             res.json({
                 ok: true,
@@ -47,14 +52,24 @@ userRoutes.post('/create', (req, res) => {
         nombre: req.body.nombre,
         email: req.body.email,
         password: bcrypt_1.default.hashSync(req.body.password, 10),
-        avatar: req.body.avatar
+        avatar: req.body.avatar,
+        edad: req.body.edad,
+        genero: req.body.genero,
+        pais: req.body.pais,
+        ciudad: req.body.ciudad,
+        intereses: req.body.intereses
     };
     usuario_model_1.Usuario.create(user).then(userDB => {
         const tokenUser = token_1.default.getJwtToken({
             _id: userDB._id,
             nombre: userDB.nombre,
             email: userDB.email,
-            avatar: userDB.avatar
+            avatar: userDB.avatar,
+            edad: userDB.edad,
+            genero: userDB.genero,
+            pais: userDB.pais,
+            ciudad: userDB.ciudad,
+            intereses: userDB.intereses
         });
         res.json({
             ok: true,
@@ -72,7 +87,12 @@ userRoutes.post('/update', autenticacion_1.verificaToken, (req, res) => {
     const user = {
         nombre: req.body.nombre || req.usuario.nombre,
         email: req.body.email || req.usuario.email,
-        avatar: req.body.avatar || req.usuario.avatar
+        avatar: req.body.avatar || req.usuario.avatar,
+        edad: req.body.edad || req.body.edad,
+        genero: req.body.genero || req.body.genero,
+        pais: req.body.pais || req.body.pais,
+        ciudad: req.body.ciudad || req.body.ciudad,
+        intereses: req.body.intereses || req.body.intereses
     };
     usuario_model_1.Usuario.findByIdAndUpdate(req.usuario._id, user, { new: true }, (err, userDB) => {
         if (err)
@@ -87,7 +107,12 @@ userRoutes.post('/update', autenticacion_1.verificaToken, (req, res) => {
             _id: userDB._id,
             nombre: userDB.nombre,
             email: userDB.email,
-            avatar: userDB.avatar
+            avatar: userDB.avatar,
+            edad: userDB.edad,
+            genero: userDB.genero,
+            pais: userDB.pais,
+            ciudad: userDB.ciudad,
+            intereses: userDB.intereses
         });
         res.json({
             ok: true,

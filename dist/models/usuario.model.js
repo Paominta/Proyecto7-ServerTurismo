@@ -22,7 +22,22 @@ const usuarioSchema = new mongoose_1.Schema({
     password: {
         type: String,
         required: [true, 'La contraseña es requerida']
-    }
+    },
+    edad: {
+        type: String,
+    },
+    genero: {
+        type: String,
+    },
+    pais: {
+        type: String,
+    },
+    ciudad: {
+        type: String,
+    },
+    intereses: {
+        type: String,
+    },
 });
 usuarioSchema.method('compararPassword', function (password = '') {
     if (bcrypt_1.default.compareSync(password, this.password)) {

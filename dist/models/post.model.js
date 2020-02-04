@@ -6,7 +6,8 @@ const postSchema = new mongoose_1.Schema({
         type: Date
     },
     nombre: {
-        type: String
+        type: String,
+        required: [true, 'El nombre del lugar es necesario']
     },
     mensaje: {
         type: String
@@ -31,6 +32,12 @@ const postSchema = new mongoose_1.Schema({
         }],
     coords: {
         type: String // Latitud y longitud
+    },
+    recorrido: {
+        type: String
+    },
+    estado: {
+        type: String
     },
     usuario: {
         type: mongoose_1.Schema.Types.ObjectId,
