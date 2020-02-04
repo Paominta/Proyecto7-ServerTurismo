@@ -22,7 +22,13 @@ server.app.use(cors_1.default({ origin: true, credentials: true }));
 server.app.use('/user', usuario_1.default);
 server.app.use('/posts', post_1.default);
 //Conectar DB
-mongoose_1.default.connect('mongodb://localhost:27017/fotosgram', { useNewUrlParser: true, useCreateIndex: true }, (err) => {
+// mongoose.connect('mongodb://localhost:27017/fotosgram',
+//             { useNewUrlParser: true, useCreateIndex:true },(err)=>{
+//                 if (err) throw err;
+//                 console.log('Base de datos online');               
+// })
+let uri = 'mongodb+srv://Paola:FSWZtqjWfodowhiw@cluster0-owcnv.mongodb.net/fotosgram?retryWrites=true&w=majority';
+mongoose_1.default.connect(uri, { useNewUrlParser: true, useCreateIndex: true }, (err) => {
     if (err)
         throw err;
     console.log('Base de datos online');
